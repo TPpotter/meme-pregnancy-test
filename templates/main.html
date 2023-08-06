@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Тест на беременность</title>
+    <style>
+
+        .container{
+   height: 100vh;
+   display: flex;
+
+
+   align-items: center;
+   justify-content: center;
+}
+
+
+        body {
+            background-image: url("static/bg.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+    </style>
+</head>
+<body>
+<DIV class="container">
+    <center>
+    <h2 style="color: black">Введите ваш пол (мальчик/девочка/паркет/линолеум)</h2>
+    <input type="text" id="gender" style="font-size: 50px; width: 200px; color: black">
+    <p></p>
+    <button onclick="test()" style="width: 100px; height: 60px; color: DarkRed">Посчитать</button>
+    </center>
+</DIV>
+<script>
+    function containsObject(obj, list) {
+        var i;
+        for (i = 0; i < list.length; i++) {
+            if (list[i] === obj) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    function test() {
+        var gender = document.getElementById('gender').value;
+        var genders = ['мальчик', 'девочка', 'паркет', 'линолеум']
+        if (!(containsObject(gender, genders))) {
+            alert('неверный ввод')
+        }
+
+        else if (gender === 'мальчик') {
+            var y = Math.random();
+            if (y < 0.000000000000000000000000000000001) {
+                alert('две полоски, хз как')
+            } else {
+                alert('иди поспи, родной. ты мальчик, значит полоска одна.')
+            }
+        }
+
+        else if ((gender === 'паркет') || (gender === 'линолеум')) {
+            alert('вы пол, буквально. смиритесь с тем, что по вам ходят.')
+        }
+
+        else if (gender === 'девочка') {
+            var y = Math.random();
+            if (y < 0.5)
+                alert('одна полоска, вы не беременны')
+            else
+                alert('две полоски, вы беременны')
+        }
+    }
+</script>
+</body>
